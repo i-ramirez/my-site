@@ -1,119 +1,331 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>My Simple Website</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Name - Resume Website</title>
   <style>
+    :root {
+      --primary-color: #63a6c0;
+      --bg-color: #050505;
+      --text-color: #e2e2e2;
+      --nav-color: #63a6c0;
+      --card-bg: #63a6c063;
+    }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-<img src="IMG_1599.jpg" alt="A photo of me" width="400" />
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-      color: #333;
+      font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
     }
 
     header {
-      background-color: #333;
-      color: white;
-      padding: 20px 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: var(--nav-color);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      padding: 1rem 2rem;
+      z-index: 999;
     }
 
     nav {
-      display: flex;
-      justify-content: space-between;
       max-width: 1000px;
       margin: auto;
-      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
     nav a {
-      color: white;
+      margin-left: 20px;
       text-decoration: none;
-      margin-left: 15px;
+      color: #050505;
+      font-weight: 500;
     }
 
     nav a:hover {
-      text-decoration: underline;
+      color: #ffffff;
     }
 
-    .hero {
-      background: #0066cc;
-      color: white;
-      padding: 80px 20px;
-      text-align: center;
-    }
-
-    .hero h1 {
-      font-size: 3rem;
-    }
-
-    .section {
+    .container {
       max-width: 1000px;
-      margin: auto;
-      padding: 40px 20px;
-      background: white;
-      margin-top: 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      margin: 120px auto 40px;
+      padding: 0 20px;
     }
 
-    .footer {
-      background-color: #333;
-      color: white;
+    section {
+      padding: 60px 0;
+      border-bottom: 1px solid #63a6c0;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.6s ease;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: var(--primary-color);
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      color: var(--primary-color);
+      margin-bottom: 20px;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    .contact-info p {
+      margin: 5px 0;
+      color: #ffffff;
+    }
+
+    .image-container {
+      width: 200px;
+      height: 200px;
+      overflow: hidden; /* Hides anything outside the container */
+    }
+    .cropped-image {
+      width: 30%;
+      height: 100%;
+      clip-path: circle(40% at center); /* Creates a circular crop */
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .project-card {
+      background: var(--card-bg);
+      border-radius: 10px;
+      box-shadow: 0 4px 10px #63a6c04f;;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .project-card img {
+      width: 100%;
+      display: block;
+      height: 160px;
+      object-fit: cover;
+    }
+
+    .project-card .info {
+      padding: 15px;
+    }
+
+    footer {
       text-align: center;
-      padding: 20px;
-      margin-top: 40px;
+      padding: 30px 0;
+      font-size: 1rem;
+      color: #888;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 600px) {
       nav {
         flex-direction: column;
         align-items: flex-start;
       }
 
-      .hero h1 {
-        font-size: 2rem;
+      nav a {
+        margin: 10px 0 0;
       }
     }
   </style>
 </head>
+
 <body>
 
   <header>
     <nav>
-      <div class="logo"><strong>MySite</strong></div>
-      <div class="nav-links">
-        <a href="#home">Home</a>
-        <a href="#services">Services</a>
+      <div><strong> TITLE </strong></div>
+      <div>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
         <a href="#contact">Contact</a>
       </div>
     </nav>
   </header>
 
-  <section class="hero" id="home">
-    <h1>Welcome to My Website</h1>
-    <p>This is a simple and responsive HTML website.</p>
-  </section>
+  <div class="container">
+    <section id="about" style="text-align: center;">
+      <img src="IMG_1599.jpg" alt="My Photo" width="200" style="margin: auto;" 
+         class="cropped-image"/>
+      <h1>Ivan Ramirez</h1>
+      <div class="contact-info" style="text-align: center;">
+      </div>
+      <br>
+      <p class="contact-info" style="text-align: center;">Data Analyst with over 5 years of experience in providing
+        insights and data-driven solutionsto the Arizona Department of Revenue (ADOR). Proficient in leveraging tools to
+        analyzelarge datasets, uncover trends, and optimize business processes, while translatingcomplex data into
+        clear, strategic recommendations. Adept at collaborating with cross-functional teams, managing client
+        relationships, and delivering customized analyticssolutions that meet business objectives and enhance
+        operational efficiency.</p>
+    </section>
 
-  <section class="section" id="services">
-    <h2>Our Services</h2>
-    <p>We offer high-quality web development, design, and consulting services tailored to your needs.</p>
-  </section>
+    <section id="skills">
+      <h2>Skills</h2>
+<div class="projects">
+        <div class="project-card">
+          <div class="info">
+            <strong>Technical Skills</strong>
+                  <ul style="padding-left: 30px;">
+                    <li>Database Management</li>  
+                    <li>SQL</li>
+                    <li>Microsoft SQL Server</li>
+                    <li>ETL</li>       
+                    <li>Microsoft Office Suite</li>        
+                    <li>Marklogic Query Console</li>       
+                    <li>Python</li>        
+                    <li>Apache NiFi</li>        
+                    <li>VS Code</li>
+                    <li>Fraud Analytics</li>
+                    <li>PowerBI*</li>        
+                    <li>Google Analytics*</li>
+                    <li>Google Workplace*</li>
+                    </ul>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="info">
+            <strong>Soft Skills</strong>
+                  <ul style="padding-left: 30px;">
+                    <li>Analytic Problem Solver</li>
+                    <li>Adaptable</li>
+                    <li>Time Management</li>       
+                    <li>Cross-Functional Teamwork</li>        
+                    <li>Client Relations</li>       
+                    <li>Communication</li>        
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    </ul>
+          </div>
+        </div>
+      </div>
+      <br>
+        <sub> * Learned via self-paced, online course. I wanted to expant my skills 
+          and knowledge of different data analytic tools </sub>
+      </ul>
+    </section>
 
-  <section class="section" id="contact">
-    <h2>Contact Us</h2>
-    <p>Email: contact@example.com</p>
-    <p>Phone: +1 (234) 567-8900</p>
-  </section>
+    <section id="experience">
+      <h2>Experience</h2>
+      <h3 style="padding-left: 10px;">Analytics Consultant II – Voyatek</h3>
+      <p style="padding-left: 10px;">May 2020 – Present</p>
+      <br>
+      <ul style="padding-left: 40px;">
+        <li>Provide direction and technical expertise to improve tax return processing
+          and fraud mitigation. In 2024, I assisted in the prevention of more than $67.3
+          million in fraud for the State of Arizona.</li>
+        <li>Oversee and build data pipelines using various tools to improve fraud detection
+          models. I helped build the detection model that detected approximately 32,750
+          fraudulent returns in Arizona.</li>
+        <li>Streamlined employee onboarding and training procedures by crafting clear
+          process improvement documents that established consistency and efficiency
+          across training initiatives.</li>
+        <li>Work cross-functionally across various projects and collaborate with team leaders
+          to create a plan based on the requirements, expectations, and complexity of theproject.</li>
+      </ul>
+      <br>
+      <h3 style="padding-left: 10px;">POS – EMP</h3>
+      <p style="padding-left: 10px;">DATE – DATE</p>
+      <br>
+      <ul style="padding-left: 40px;">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+      <br>
+      <h3 style="padding-left: 10px;">POS – EMP</h3>
+      <p style="padding-left: 10px;">DATE – DATE</p>
+      <br>
+      <ul style="padding-left: 40px;">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+      <br>
+      <h3 style="padding-left: 10px;">POS – EMP</h3>
+      <p style="padding-left: 10px;">DATE – DATE</p>
+      <br>
+      <ul style="padding-left: 40px;">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+      <br>
+    </section>
 
-  <footer class="footer">
-    <p>&copy; 2025 MySite. All rights reserved.</p>
+    <section id="education">
+      <h2>Education</h2>
+      <p style="padding-left: 20px;"><strong>BSc. in Engineering and Business Management</strong> – Arizona State
+        University</p>
+      <p style="padding-left: 20px;"><strong>AS in Business</strong> – Arizona Western College</p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact Me</h2>
+      <p><b>Phone:</b> 928-259-4183</p>
+      <p><b>Email:</b> ivanram.js@gmail.com</p>
+      <p><b>LinkedIn:</b> www.linkedin.com/in/ivan-ramirez</p>
+      <br>
+  </div>
+
+  <footer>
+    THANKS FOR VISITNG
   </footer>
 
+  <script>
+    // Reveal animation on scroll
+    const sections = document.querySelectorAll('section');
+
+    function revealSections() {
+      const triggerBottom = window.innerHeight * 0.85;
+      sections.forEach(section => {
+        const top = section.getBoundingClientRect().top;
+        if (top < triggerBottom) {
+          section.classList.add('visible');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', revealSections);
+    window.addEventListener('load', revealSections);
+  </script>
+
 </body>
+
 </html>
