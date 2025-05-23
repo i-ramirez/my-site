@@ -4,14 +4,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ivan-Ramirez - Resume Website</title>
+  <title>Ivan-Ramirez - Website</title>
   <style>
     :root {
-      --primary-color: #63a6c0;
-      --bg-color: #050505;
-      --text-color: #e2e2e2;
-      --nav-color: #63a6c0;
-      --card-bg: #63a6c063;
+      --primary-color: #1e2f3e;
+      --bg-color: #ffffff;
+      --text-color: #000000;
+      --nav-color: #f2f6f9;
+      --card-bg: #04b8ff75;
+      --gradient-card-color: #f2f6f9;
+      --gradient-col: linear-gradient(to bottom, var(--gradient-card-color) 70%, white 100%)
+        /*--gradient-col: linear-gradient(to right, black, #63a6c0)*/
     }
 
     * {
@@ -36,7 +39,7 @@
       left: 0;
       width: 100%;
       background: var(--nav-color);
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0);
       padding: 1rem 2rem;
       z-index: 999;
     }
@@ -52,23 +55,24 @@
     nav a {
       margin-left: 20px;
       text-decoration: none;
-      color: #050505;
+      color: #383838;
       font-weight: 500;
     }
 
     nav a:hover {
-      color: #ffffff;
+      color: #010101;
+      font-weight: 599;
     }
 
     .container {
       max-width: 1000px;
-      margin: 120px auto 40px;
-      padding: 0 20px;
+      margin: 0px auto 0px;
+      padding: 0 0px;
     }
 
     section {
       padding: 60px 0;
-      border-bottom: 1px solid #63a6c0;
+      border-bottom: 1px solid #00000030;
       opacity: 0;
       transform: translateY(40px);
       transition: all 0.6s ease;
@@ -86,13 +90,25 @@
     }
 
     h2 {
-      font-size: 1.6rem;
+      font-size: 2rem;
       color: var(--primary-color);
       margin-bottom: 20px;
     }
 
+    h3 {
+      font-size: 1.5rem;
+      color: var(--primary-color);
+      margin-bottom: 5px;
+    }
+
     ul {
       padding-left: 20px;
+    }
+
+    li {
+      padding-bottom: 10px;
+      /*   list-style-type: "🔔";
+   */
     }
 
     .contact-info p {
@@ -108,9 +124,18 @@
     }
 
     .cropped-image {
-      width: 40%;
-      height: 100%;
-      clip-path: circle(40% at center);
+      width: 250px;
+      height: 350px;
+      border-radius: 2%;
+      /* clip-path: circle(40% at center);*/
+      /* Creates a circular crop */
+    }
+
+    .crop-image {
+      width: 300px;
+      height: 500px;
+      clip-path: inset(0px 5px 5px round 10px);
+      border-radius: 2%;
       /* Creates a circular crop */
     }
 
@@ -121,12 +146,21 @@
     }
 
     .project-card {
-      background: var(--card-bg);
+      background: var(--gradient-col);
+      /*var(--card-bg);*/
+      background-size: auto;
       border-radius: 10px;
-      box-shadow: 0 4px 10px #63a6c04f;
-      ;
+      /*box-shadow: 0 4px 10px #63a6c04f;*/
       overflow: hidden;
       transition: transform 0.3s ease;
+    }
+
+    .project-card2 {
+      background-size: auto;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      text-align: center;
     }
 
     .project-card:hover {
@@ -182,16 +216,20 @@
 
   <div class="container">
     <section id="about" style="text-align: center;">
-      <img src="profile-pic.jpg" alt="My Photo" width="300" style="margin: auto;" class="cropped-image" />
+      <img src="pictures/profile-pic.jpg" alt="My Photo" width="300" style="margin: auto;" class="cropped-image" />
       <h1>Ivan Ramirez</h1>
       <div class="contact-info" style="text-align: center;">
       </div>
 
       <br>
 
-      <p class="contact-info" style="text-align: center;">Welcome! I’m a Data Analytics Consultant with over 5 years of experience specializing in tax fraud and noncompliance. 
-        I help clients uncover insights and deliver data-driven solutions by leveraging tools like SQL, Excel, and Python. My work focuses on streamlining reporting, identifying opportunities, and optimizing business processes.
-I’m a collaborative problem solver, known for being a fast learner and detail-oriented. I take pride in delivering high-quality analysis that drives real business value, improves efficiency, and supports strategic goals.
+      <p class="contact-info" style="text-align: center;">Welcome! I’m a Data Analytics Consultant with over 5 years of
+        experience specializing in tax fraud and noncompliance.
+        I help clients uncover insights and deliver data-driven solutions by leveraging tools like SQL, Excel, and
+        Python. My work focuses on streamlining reporting, identifying opportunities, and optimizing business processes.
+        I’m a collaborative problem solver, known for being a fast learner and detail-oriented. I take pride in
+        delivering high-quality analysis that drives real business value, improves efficiency, and supports strategic
+        goals.
       </p>
     </section>
 
@@ -200,21 +238,22 @@ I’m a collaborative problem solver, known for being a fast learner and detail-
       <div class="projects">
         <div class="project-card">
           <div class="info">
-            <strong>Technical Skills</strong>
-            <ul style="padding-left: 30px;">
+            <strong style="font-size: 1.3rem;">Hard Skills</strong>
+            <ul style="padding-left: 20px;">
+              <br>
               <li>Apache NiFi</li>
+              <li>Bilingual (English/Spanish)</li>
               <li>Database Management</li>
               <li>ETL</li>
               <li>Fraud Analytics</li>
-              <li>Google Analytics*</li>
+              <li>Google Analytics **</li>
               <li>Google Workplace (G Suite)</li>
               <li>Marklogic Query Console (NoSQL Database)</li>
               <li>Microsoft Office Suite</li>
-                <sub style="padding-left: 30px;">Excel, Word, PowerPoint, Teams</sub>
-                <br>
-                <sub style="padding-left: 30px;">OneDrive, SharePoint, Outlook</sub>
+              <p style="padding-left: 20px;">Excel, Word, PowerPoint, Teams</p>
+              <p style="padding-left: 20px;">OneDrive, SharePoint, Outlook</p>
               <li>Microsoft SQL Server</li>
-              <li>PowerBI*</li>
+              <li>PowerBI **</li>
               <li>Python</li>
               <li>SQL</li>
               <li>Technical Writing</li>
@@ -224,8 +263,9 @@ I’m a collaborative problem solver, known for being a fast learner and detail-
         </div>
         <div class="project-card">
           <div class="info">
-            <strong>Soft Skills</strong>
-            <ul style="padding-left: 30px;">
+            <strong style="font-size: 1.3rem;">Soft Skills</strong>
+            <ul style="padding-left: 20px;">
+              <br>
               <li>Adaptability</li>
               <li>Analytic Problem Solving</li>
               <li>Detail-oriented</li>
@@ -233,16 +273,23 @@ I’m a collaborative problem solver, known for being a fast learner and detail-
               <li>Client Relations</li>
               <li>Collaboration</li>
               <li>Communication</li>
-              <li>Fast Learner</li>              
+              <li>Fast Learner</li>
               <li>Time Management</li>
             </ul>
           </div>
         </div>
       </div>
       <br>
-      <sub> * Learned via self-paced, online course. I took it upon myself to expand my skills
-        and knowledge of different data analytic tools.</sub>
-      </ul>
+      <p style="text-align: center; font-size: .90rem"> ** I learned through a self-paced, online course. I took it upon
+        myself to expand my skills
+        and knowledge of different tools. </p>
+      <br>
+      <br>
+      <p style="text-align: center; font-size: 1rem">I'd like to point out that in only a couple of days,
+        I learned HTML to
+        create and deploy this page
+        for myself. I am excited by new challenges and seek to learn new things.
+      </p>
     </section>
 
     <section id="experience">
@@ -314,24 +361,50 @@ I’m a collaborative problem solver, known for being a fast learner and detail-
 
     <section id="education">
       <h2>Education</h2>
-      <p style="padding-left: 20px;"><strong>BSc. in Engineering and Business Management</strong> </p>
-      <p style="padding-left: 40px;"> Arizona State
-        University</p>
-        <br>
-      <p style="padding-left: 20px;"><strong>Associate in Business</strong> </p>
-      <p style="padding-left: 40px;"> Arizona Western College</p>
+      <div class="projects">
+        <div class="project-card2">
+          <div class="info">
+            <img src="pictures/asu.jpeg" alt="My Photo" width="400" height="280" class="center" />
+          </div>
+          <strong style="font-size: 1.5rem;">Arizona State University</strong>
+          <p style="font-size: 1.1rem;">BSc. in Engineering
+            and<br>Business Management</p>
+        </div>
+        <div class="project-card2">
+          <div class="info">
+
+            <img src="pictures/awc.jpeg" alt="My Photo" width="400" height="280" class="center" />
+          </div>
+          <strong style="font-size: 1.5rem;">Arizona Western College</strong>
+          <p style="font-size: 1.1rem;">Associate in Business</p>
+        </div>
+      </div>
     </section>
 
     <section id="personal">
       <h2>Personal</h2>
-      <p style="padding-left: 20px;"> about me</p>
+      <p style="text-align: left;">
+        A little about me — I’m someone who thrives on staying active and embracing the outdoors (when the Arizona heat
+        allows it).
+        I’m always up for a good challenge and some adventure, whether it’s exploring new trails, revisiting old ones,
+        or going off-roading.
+        If I’m not spending time with friends, family, or chasing a good workout at the gym, you’ll probably find me
+        hanging out with my dog Rex.
+        And when northern Arizona gets snow, I make the most of it by hitting the mountain for some snowboarding.
+      </p>
+      <br>
+      <p style="text-align: center;">
+        <img src="pictures/lucha.jpg" alt="My Photo" width="100" style="margin: auto;" class="crop-image" />
+        <img src="pictures/rex.jpeg" alt="My Photo" width="100" style="margin: auto;" class="crop-image" />
+        <img src="pictures/snow2.jpeg" alt="My Photo" width="100" style="margin: auto;" class="crop-image" />
+      </p>
     </section>
 
     <section id="contact" style="text-align: center;">
       <h2>Contact</h2>
-      <p><b>Phone:</b> 928-259-4183</p>
-      <p><b>Email:</b> ivanram.js@gmail.com</p>
-      <p><b>LinkedIn:</b> www.linkedin.com/in/ivan-ramirez</p>
+      <p><b>📱 Phone:</b> 928-259-4183</p>
+      <p><b>✉️ Email:</b> ivanram.js@gmail.com</p>
+      <p><b>🌐 LinkedIn:</b> www.linkedin.com/in/ivan-ramirez</p>
       <br>
   </div>
 
